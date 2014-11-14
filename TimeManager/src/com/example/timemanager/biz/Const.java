@@ -5,4 +5,5 @@ public class Const {
 	public static final String ISREMENBERPASSWORD = "isremenberpassword";//记录是否记住密码
 	public static final String LOGIN_NAME = "name";//登陆名字
 	public static final String LOGIN_PSWD = "password";//登陆密码
+	public static final String LOGIN_VALUES = "login_values";//保存课程表的返回的HTML字符串
 }

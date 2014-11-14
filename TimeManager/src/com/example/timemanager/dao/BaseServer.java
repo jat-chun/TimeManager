@@ -16,11 +16,14 @@ public interface BaseServer<T> {
 	
 	public long add(String id,String title,String content);
 	
-	public int update(String id,String title,String content);
 	
 	public int delete(String id);
 	
-	public T find(String id);
 	
 	public List<T> findAll();
+
+	public WeekPlanBean find(int id);
+	
+	public void update(int id, String title, String content);
+
 }

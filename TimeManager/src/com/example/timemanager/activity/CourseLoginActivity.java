@@ -2,7 +2,7 @@ package com.example.timemanager.activity;
 
 import com.example.timemanager.R;
 import com.example.timemanager.biz.Const;
-import com.example.timemanager.utils.LoginHelper;
+import com.example.timemanager.utils.CourseLoginHelper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class CourseLoginActivity extends Activity{
-	private LoginHelper loginHelper;
+	private CourseLoginHelper loginHelper;
 	private SharedPreferences sp;
 	private EditText et_login_name;
 	private EditText et_login_pswd;
@@ -50,7 +50,7 @@ public class CourseLoginActivity extends Activity{
 			editor.commit();
 		}
 
-		loginHelper = new LoginHelper(CourseLoginActivity.this);
+		loginHelper = new CourseLoginHelper(CourseLoginActivity.this);
 		loginHelper.Login(name, pswd);
 	}
 

@@ -13,11 +13,11 @@ import android.widget.ListView;
 import com.example.timemanager.R;
 import com.example.timemanager.adapter.MainAdapter;
 import com.example.timemanager.biz.Const;
-import com.example.timemanager.utils.LoginHelper;
+import com.example.timemanager.utils.CourseLoginHelper;
 
 public class MainActivity extends Activity{
 	private MainAdapter adapter;
-	private LoginHelper loginHelper;
+	private CourseLoginHelper loginHelper;
 	private SharedPreferences sp;
 	private Intent intent;
 	private MainActivity TAG = MainActivity.this;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity{
 				case 3:
 					boolean isLogin = sp.getBoolean(Const.ISLOGIN, false);
 					if(isLogin){
-						loginHelper = new LoginHelper(TAG);
+						loginHelper = new CourseLoginHelper(TAG);
 						String name = sp.getString(Const.LOGIN_NAME, null);
 						String pswd = sp.getString(Const.LOGIN_PSWD, null);
 						loginHelper.Login(name, pswd);

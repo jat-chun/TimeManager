@@ -4,13 +4,16 @@ import android.text.format.Time;
 
 public class WeekPlanBean {
 
-	public WeekPlanBean(String id, String title, String content) {
+	public WeekPlanBean(int id, String title, String content) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 	}
-	private String id;
+	public WeekPlanBean() {
+		// TODO Auto-generated constructor stub
+	}
+	private int id;
 	private String title;
 	private String content;
 	
@@ -22,10 +25,10 @@ public class WeekPlanBean {
 //	public void setTime(Time time) {
 //		this.time = time;
 //	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {

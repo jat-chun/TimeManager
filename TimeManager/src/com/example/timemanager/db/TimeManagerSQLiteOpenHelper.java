@@ -22,7 +22,7 @@ public class TimeManagerSQLiteOpenHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE week_plan (id integer primary key autoincrement,title varchar[60],content varchar[100])");
 		db.execSQL("CREATE TABLE timemanager (id integer primary key autoincrement,name varchar[20],describe varchar[60])");
 		db.execSQL("CREATE TABLE memorandum (id integer primary key autoincrement,title varchar[20],content varchar[100])");
-		db.execSQL("CREATE TABLE diary (id integer primary key autoincrement,title varchar[20],content varchar[100],time DateTime)");
+		db.execSQL("CREATE TABLE diary (id integer primary key autoincrement,author varchar[20],time DateTime, title varchar[20],content varchar[100])");
 		// db.execSQL("create table person id integer primary key autoincrement,name varchar(20),number varchar(20);");
 		// db.execSQL("create table alarm ");
 	}

@@ -48,7 +48,7 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 	}
 
 	@Override
-	public int update(String id, String title, String content) {
+	public void update(int id, String title, String content) {
 		db = helper.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put("title", title);
@@ -56,8 +56,9 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		int influense = 0;
 		try {
 			db.beginTransaction();
-			influense = db.update("week_plan", values, "id = ?", new String[]{id});
+//			influense = db.update("week_plan", values, "id = ?", new String[]{id});
 			//		long id1 = db.insert("week_plan", null, values);
+			db.execSQL("update table week_plan set title = "+title+"and content =  "+content+"where id="+id);
 			db.setTransactionSuccessful();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -65,7 +66,6 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 			db.endTransaction();
 			db.close();
 		}
-		return influense;
 	}
 
 	@Override
@@ -88,13 +88,15 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 	}
 
 	@Override
-	public WeekPlanBean find(String id) {
+	public WeekPlanBean find(int id) {
 		db = helper.getReadableDatabase();
-		Cursor cursor = db.query("week_plan", null, "id = ?", new String[]{id} , null, null, null);
-		//		db.execSQL("select * from table week_plan where id = "+id);
+//		bean = new WeekPlanBean();
+		String findId = String.valueOf(id);
+		Cursor cursor = db.query("week_plan", null, "id = ?",new String[]{findId}, null, null, null);
+//		bean =db.execSQL("select * from table week_plan where id = "+id);
 		//		db.rawQuery("select * from table week_plan where id = ?", new String[]{});
 		if(cursor.moveToNext()){
-			String id1 = cursor.getString(cursor.getColumnIndex("id"));
+			int id1 = cursor.getInt(cursor.getColumnIndex("id"));
 			String title = cursor.getString(cursor.getColumnIndex("title"));
 			String content = cursor.getString(cursor.getColumnIndex("content"));
 			String time = cursor.getString(cursor.getColumnIndex("time"));
@@ -113,7 +115,7 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		//		db.execSQL("select * from table week_plan where id = "+id);
 		//		db.rawQuery("select * from table week_plan where id = ?", new String[]{});
 		while(cursor.moveToNext()){
-			String id1 = cursor.getString(cursor.getColumnIndex("id"));
+			int id1 = cursor.getInt(cursor.getColumnIndex("id"));
 			String title = cursor.getString(cursor.getColumnIndex("title"));
 			String content = cursor.getString(cursor.getColumnIndex("content"));
 			String time = cursor.getString(cursor.getColumnIndex("time"));

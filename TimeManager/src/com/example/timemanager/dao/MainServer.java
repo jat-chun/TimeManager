@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.timemanager.bean.MainBean;
+import com.example.timemanager.bean.WeekPlanBean;
 import com.example.timemanager.db.TimeManagerSQLiteOpenHelper;
 
 public class MainServer implements BaseServer<MainBean>{
@@ -27,11 +28,6 @@ public class MainServer implements BaseServer<MainBean>{
 		return 0;
 	}
 
-	@Override
-	public int update(String id, String title, String content) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public int delete(String id) {
@@ -40,16 +36,21 @@ public class MainServer implements BaseServer<MainBean>{
 	}
 
 	@Override
-	public MainBean find(String id) {
+	public void update(int id, String title, String content) {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
+	public WeekPlanBean find(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public List<MainBean> findAll() {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = helper.getReadableDatabase();
-		Cursor cursor =db.query("timemanager", null, null, null, null, null, null);
+		Cursor cursor = db.query("timemanager", null, null, null, null, null, null);
 		while(cursor.moveToNext()){
 			int id = cursor.getInt(cursor.getColumnIndex("id"));
 			String name = cursor.getString(cursor.getColumnIndex("name"));
@@ -60,5 +61,9 @@ public class MainServer implements BaseServer<MainBean>{
 		}
 		return list;
 	}
+
 	
+
+	
+
 }
