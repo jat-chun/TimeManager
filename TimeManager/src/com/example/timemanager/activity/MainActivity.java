@@ -46,7 +46,7 @@ public class MainActivity extends Activity{
 					
 					break;
 				case 2:
-					intent = new Intent(MainActivity.this, CanlenderActivity.class);
+					intent = new Intent(Intent.ACTION_PICK).setDataAndType(null, CalendarActivity.MIME_TYPE);
 					MainActivity.this.startActivity(intent);
 					break;
 				case 3:
@@ -70,8 +70,9 @@ public class MainActivity extends Activity{
 					startActivity(intent);
 					break;
 				case 6:
+					intent = new Intent(MainActivity.this, AlarmActivity.class);
+					startActivity(intent);
 					break;
-
 				default:
 					break;
 				}

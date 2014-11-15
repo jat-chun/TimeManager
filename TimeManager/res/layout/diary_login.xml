@@ -42,12 +42,10 @@
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/cb_diary_login_rem"
+        android:id="@+id/cb_diary_login_remember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="记住密码" />
+        android:text="@string/login_rem" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -61,7 +59,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="54dp"
-            android:onClick="cancel"
+            android:onClick="cancelCourse"
             android:text="@string/bt_cancel" />
 
         <Button
@@ -71,7 +69,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="52dp"
-            android:onClick="sure"
+            android:onClick="loginCourse"
             android:text="@string/bt_login" />
     </RelativeLayout>
 
