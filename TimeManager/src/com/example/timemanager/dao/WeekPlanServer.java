@@ -24,10 +24,11 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 	}
 
 	@Override
-	public long add(String id, String title, String content) {
+	public long add(int id, String title, String content) {
 
 		db = helper.getWritableDatabase();
 		ContentValues values = new ContentValues();
+		String addId = String.valueOf(id);
 		values.put("id", id);
 		values.put("title", title);
 		values.put("content", content);
@@ -69,13 +70,14 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 	}
 
 	@Override
-	public int delete(String id) {
+	public int delete(int id) {
 
 		db = helper.getWritableDatabase();
 		int influense = 0;
 		try {
 			db.beginTransaction();
-			influense = db.delete("week_plan",  "id = ?", new String[]{id});
+			String deleteId = String.valueOf(id);
+			influense = db.delete("week_plan",  "id = ?", new String[]{deleteId});
 			//		long id1 = db.insert("week_plan", null, values);
 			db.setTransactionSuccessful();
 		} catch (Exception e) {

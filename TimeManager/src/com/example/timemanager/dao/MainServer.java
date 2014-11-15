@@ -19,18 +19,17 @@ public class MainServer implements BaseServer<MainBean>{
 	public MainServer(Context context) {
 		// TODO Auto-generated constructor stub
 		helper = new TimeManagerSQLiteOpenHelper(context);
-		SQLiteDatabase db = helper.getWritableDatabase();
 	}
 	
 	@Override
-	public long add(String id, String title, String content) {
+	public long add(int id, String title, String content) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 
 	@Override
-	public int delete(String id) {
+	public int delete(int id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

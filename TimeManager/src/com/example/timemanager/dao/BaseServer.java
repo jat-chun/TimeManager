@@ -14,10 +14,10 @@ import com.example.timemanager.db.TimeManagerSQLiteOpenHelper;
 public interface BaseServer<T> {
 	
 	
-	public long add(String id,String title,String content);
+	public long add(int id,String title,String content);
 	
 	
-	public int delete(String id);
+	public int delete(int id);
 	
 	
 	public List<T> findAll();
