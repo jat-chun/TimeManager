@@ -1,6 +1,7 @@
 package com.example.timemanager.activity;
 
 import com.example.timemanager.R;
+import com.example.timemanager.bean.WeekPlanBean;
 import com.example.timemanager.dao.WeekPlanServer;
 
 import android.app.Activity;
@@ -15,18 +16,29 @@ public class WeekPlanEditActivity extends Activity{
 
 	private EditText et_week_plan_item_edit_title;
 	private EditText et_week_plan_item_edit_content;
+	
 	private String title;
 	private String content;
 	private WeekPlanServer server;
+	private int id;
+	private WeekPlanBean bean;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.week_plan_item_edit);
 
+		Intent intent = getIntent();
+		id = (Integer) intent.getSerializableExtra("id");
 		server = new WeekPlanServer(this);
+		bean = server.find(id);
 		et_week_plan_item_edit_title = (EditText) findViewById(R.id.et_week_plan_item_edit_title);
 		et_week_plan_item_edit_content = (EditText) findViewById(R.id.et_week_plan_item_edit_content);
+		if(bean!=null){
+			et_week_plan_item_edit_title.setText(bean.getTitle());
+			et_week_plan_item_edit_content.setText(bean.getContent());
+		}
 	}
 	/**
 	 * 把数据更新保存到数据库
@@ -38,8 +50,11 @@ public class WeekPlanEditActivity extends Activity{
 		//数据库的保存操作
 		title = et_week_plan_item_edit_title.getText().toString();
 		content = et_week_plan_item_edit_content.getText().toString();
-//		server.add(id, title, content);
-		
+		if(bean==null){
+			server.add(id, title, content);
+		}else{
+			server.update(id, title, content);
+		}
 		//回到上一层的activity显示周计划
 		Intent intent = new Intent(WeekPlanEditActivity.this, WeekPlanActivity.class);
 		WeekPlanEditActivity.this.startActivity(intent);
@@ -55,10 +70,6 @@ public class WeekPlanEditActivity extends Activity{
 	}
 
 	public void delete(View view){
-		
-		
-		
-		
 		//删除后。则返回上一层显示weekplan
 		Intent intent = new Intent(WeekPlanEditActivity.this, WeekPlanActivity.class);
 		WeekPlanEditActivity.this.startActivity(intent);

@@ -42,7 +42,7 @@ public class WeekPlanAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.week_plan_gv_item, null);
 		
@@ -55,6 +55,7 @@ public class WeekPlanAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(context, WeekPlanEditActivity.class);
+				intent.putExtra("id", position);
 				context.startActivity(intent);
 			}
 		});

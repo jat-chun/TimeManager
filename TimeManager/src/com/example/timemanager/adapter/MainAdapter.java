@@ -37,7 +37,7 @@ public class MainAdapter extends BaseAdapter implements ListAdapter {
 	}
 	
 	private int[] imageArray = new int[]{
-			R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one
+			R.drawable.memorandum,R.drawable.alarm,R.drawable.calendar,R.drawable.course,R.drawable.week_plan,R.drawable.diary,R.drawable.about
 	};
 //	private String[] nameArray = new String[]{
 //			"日历","课程表推送","闹钟","一周计划","关于我们"
@@ -112,22 +112,6 @@ public class MainAdapter extends BaseAdapter implements ListAdapter {
 		tv_item_introduce.setText(describe[position]);
 		return view;
 		
-//		View view = inflater.inflate(R.layout.main_item, null);
-//		ImageView iv_main = (ImageView) view.findViewById(R.id.iv_main);
-//		TextView tv_main = (TextView) view.findViewById(R.id.tv_main);
-//		iv_main.setImageResource(imageArray[position]);
-//		
-//		if(position == 0){
-//			String name = sp.getString("name", nameArray[position]);
-//			if("".equals(name)){
-//				name = nameArray[position];
-//			}
-//			tv_main.setText(name);
-//		}else{
-//			tv_main.setText(nameArray[position]);
-//		}
-		
-//		return view;
 	}
 
 }

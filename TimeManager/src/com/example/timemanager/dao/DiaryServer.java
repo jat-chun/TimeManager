@@ -22,11 +22,10 @@ public class DiaryServer {
 		helper = new TimeManagerSQLiteOpenHelper(context);
 	}
 
-	public long add(int id, String author, String time, String title,
+	public long add(String author, String time, String title,
 			String content) {
 		db = helper.getWritableDatabase();
 		ContentValues values = new ContentValues();
-		values.put("id", id);
 		values.put("author", author);
 		values.put("time", time);
 		values.put("title", title);
