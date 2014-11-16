@@ -37,7 +37,7 @@ public class MainAdapter extends BaseAdapter implements ListAdapter {
 	}
 	
 	private int[] imageArray = new int[]{
-			R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo
+			R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one,R.drawable.one
 	};
 //	private String[] nameArray = new String[]{
 //			"日历","课程表推送","闹钟","一周计划","关于我们"

@@ -3,7 +3,7 @@
     android:id="@+id/main_activty"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/start"
+    android:background="@drawable/open"
     android:orientation="vertical" >
 
     <ListView

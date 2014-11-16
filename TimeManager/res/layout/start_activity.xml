@@ -3,7 +3,7 @@
     android:id="@+id/start_time"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/second" >
+    android:background="@drawable/start" >
 
     <TextView
         android:id="@+id/tv_start_version"

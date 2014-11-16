@@ -20,7 +20,7 @@
     <!-- Alarm -->
     <application
         android:allowBackup="true"
-        android:icon="@drawable/two"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
