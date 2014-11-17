@@ -36,7 +36,7 @@ public class WeekPlanEditActivity extends Activity{
 		et_week_plan_item_edit_title = (EditText) findViewById(R.id.et_week_plan_item_edit_title);
 		et_week_plan_item_edit_content = (EditText) findViewById(R.id.et_week_plan_item_edit_content);
 		if(bean!=null){
-			et_week_plan_item_edit_title.setText(bean.getTitle());
+//			et_week_plan_item_edit_title.setText(bean.getTitle());
 			et_week_plan_item_edit_content.setText(bean.getContent());
 		}
 	}
@@ -51,9 +51,9 @@ public class WeekPlanEditActivity extends Activity{
 		title = et_week_plan_item_edit_title.getText().toString();
 		content = et_week_plan_item_edit_content.getText().toString();
 		if(bean==null){
-			server.add(id, title, content);
+			server.add(id,content);
 		}else{
-			server.update(id, title, content);
+			server.update(id,content);
 		}
 		//回到上一层的activity显示周计划
 		Intent intent = new Intent(WeekPlanEditActivity.this, WeekPlanActivity.class);

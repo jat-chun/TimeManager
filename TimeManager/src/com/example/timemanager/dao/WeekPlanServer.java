@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.timemanager.bean.WeekPlanBean;
 import com.example.timemanager.db.TimeManagerSQLiteOpenHelper;
 
-public class WeekPlanServer implements BaseServer<WeekPlanBean>{
+public class WeekPlanServer {
 
 	private TimeManagerSQLiteOpenHelper helper;
 	private SQLiteDatabase db;
@@ -23,14 +23,13 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		helper = new TimeManagerSQLiteOpenHelper(context);
 	}
 
-	@Override
-	public long add(int id, String title, String content) {
+	public long add(int id, String content) {
 
 		db = helper.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		String addId = String.valueOf(id);
 		values.put("id", id);
-		values.put("title", title);
+//		values.put("title", title);
 		values.put("content", content);
 		long id1 = 0;
 		try {
@@ -48,18 +47,17 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		return id1;
 	}
 
-	@Override
-	public void update(int id, String title, String content) {
+	public void update(int id, String content) {
 		db = helper.getWritableDatabase();
 		ContentValues values = new ContentValues();
-		values.put("title", title);
+//		values.put("title", title);
 		values.put("content", content);
 		int influense = 0;
 		try {
 			db.beginTransaction();
 //			influense = db.update("week_plan", values, "id = ?", new String[]{id});
 			//		long id1 = db.insert("week_plan", null, values);
-			db.execSQL("update table week_plan set title = "+title+"and content =  "+content+"where id="+id);
+			db.execSQL("update table week_plan set  content =  "+content+"where id="+id);
 			db.setTransactionSuccessful();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -69,7 +67,6 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		}
 	}
 
-	@Override
 	public int delete(int id) {
 
 		db = helper.getWritableDatabase();
@@ -89,7 +86,6 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		return influense;
 	}
 
-	@Override
 	public WeekPlanBean find(int id) {
 		db = helper.getReadableDatabase();
 //		bean = new WeekPlanBean();
@@ -99,17 +95,16 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		//		db.rawQuery("select * from table week_plan where id = ?", new String[]{});
 		if(cursor.moveToNext()){
 			int id1 = cursor.getInt(cursor.getColumnIndex("id"));
-			String title = cursor.getString(cursor.getColumnIndex("title"));
+//			String title = cursor.getString(cursor.getColumnIndex("title"));
 			String content = cursor.getString(cursor.getColumnIndex("content"));
 			String time = cursor.getString(cursor.getColumnIndex("time"));
-			bean = new WeekPlanBean(id1, title, content);
+			bean = new WeekPlanBean(id1,content);
 			cursor.close();
 			db.close();
 		}
 		return bean;
 	}
 
-	@Override
 	public List<WeekPlanBean> findAll() {
 		db = helper.getReadableDatabase();
 		list = new ArrayList<WeekPlanBean>();
@@ -118,10 +113,10 @@ public class WeekPlanServer implements BaseServer<WeekPlanBean>{
 		//		db.rawQuery("select * from table week_plan where id = ?", new String[]{});
 		while(cursor.moveToNext()){
 			int id1 = cursor.getInt(cursor.getColumnIndex("id"));
-			String title = cursor.getString(cursor.getColumnIndex("title"));
+//			String title = cursor.getString(cursor.getColumnIndex("title"));
 			String content = cursor.getString(cursor.getColumnIndex("content"));
 			String time = cursor.getString(cursor.getColumnIndex("time"));
-			bean = new WeekPlanBean(id1, title, content);
+			bean = new WeekPlanBean(id1, content);
 			list.add(bean);
 		}
 		cursor.close();

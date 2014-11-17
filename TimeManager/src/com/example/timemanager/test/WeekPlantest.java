@@ -8,7 +8,7 @@ import android.test.AndroidTestCase;
 public class WeekPlantest extends AndroidTestCase {
 	private WeekPlanServer server = new WeekPlanServer(getContext());
 	public void testAdd(){
-		server.add(0, "周计划", "调整时间");
+//		server.add(0, "周计划", "调整时间");
 		System.out.println("插入成功");
 	}
 }

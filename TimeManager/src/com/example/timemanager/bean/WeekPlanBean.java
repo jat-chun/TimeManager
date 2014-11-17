@@ -4,17 +4,17 @@ import android.text.format.Time;
 
 public class WeekPlanBean {
 
-	public WeekPlanBean(int id, String title, String content) {
+	public WeekPlanBean(int id, String content) {
 		super();
 		this.id = id;
-		this.title = title;
+//		this.title = title;
 		this.content = content;
 	}
 	public WeekPlanBean() {
 		// TODO Auto-generated constructor stub
 	}
 	private int id;
-	private String title;
+//	private String title;
 	private String content;
 	
 //	private Time time;
@@ -31,12 +31,12 @@ public class WeekPlanBean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+//	public String getTitle() {
+//		return title;
+//	}
+//	public void setTitle(String title) {
+//		this.title = title;
+//	}
 	public String getContent() {
 		return content;
 	}
