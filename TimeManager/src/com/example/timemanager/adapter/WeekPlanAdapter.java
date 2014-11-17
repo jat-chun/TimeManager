@@ -26,19 +26,19 @@ public class WeekPlanAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 21;
 	}
 
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return null;
+		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
-		return 0;
+		return position;
 	}
 
 	@Override
@@ -49,17 +49,17 @@ public class WeekPlanAdapter extends BaseAdapter {
 		TextView tv_week_plan_item_title = (TextView) view.findViewById(R.id.tv_week_plan_item_title);
 		TextView tv_week_plan_item_content = (TextView) view.findViewById(R.id.tv_week_plan_item_content);
 		
-		view.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(context, WeekPlanEditActivity.class);
-				intent.putExtra("id", position);
-				context.startActivity(intent);
-			}
-		});
-		return null;
+//		view.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				Intent intent = new Intent(context, WeekPlanEditActivity.class);
+//				intent.putExtra("id", position);
+//				context.startActivity(intent);
+//			}
+//		});
+		return view;
 	}
 
 }

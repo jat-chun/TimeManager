@@ -6,6 +6,7 @@ import com.example.timemanager.R;
 import com.example.timemanager.adapter.WeekPlanAdapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +31,10 @@ public class WeekPlanActivity extends Activity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				
+				Intent intent = new Intent();
+				intent.putExtra("id", arg2);
+				intent.setClass(WeekPlanActivity.this, WeekPlanEditActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
